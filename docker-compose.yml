@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  app:
+    container_name: rest-api-typescript
+    restart: always
+    build: ./
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    links:
+      - mongo
+    env_file: 
+      - ./.env
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
