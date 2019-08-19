@@ -13,7 +13,7 @@
     "dev:ts-node": "nodemon --watch src -e ts --exec npm run ts-node",
     "dev": "nodemon --watch src -e ts --exec npm run dev:start",
     "start": "nodemon .",
-    "test": "jest --watch",
+    "test": "jest",
     "coverage": "jest --coverage"
   },
   "keywords": [
