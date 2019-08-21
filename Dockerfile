@@ -1,13 +1,13 @@
 FROM node:8
 
+ENV PORT 8080
+EXPOSE 8080
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN npm i
+RUN npm i --production
 
 COPY . .
-EXPOSE 8080
-
-RUN npm run build
 
 CMD [ "npm", "start" ]
