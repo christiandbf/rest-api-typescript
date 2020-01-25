@@ -1,13 +1,20 @@
-FROM node:8
+FROM node:12.14.1-alpine3.11 AS builder
 
-ENV PORT 8080
-EXPOSE 8080
+WORKDIR /usr/src/app
+COPY . .
+
+RUN npm install
+RUN npm run build
+
+FROM node:12.14.1-alpine3.11 AS ts-prod
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-RUN npm i --production
+EXPOSE 3000
 
-COPY . .
+COPY package* ./
+RUN npm install --production
 
-CMD [ "npm", "start" ]
+COPY --from=builder ./usr/src/app/dist ./dist
+
+CMD npm start
