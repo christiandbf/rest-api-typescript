@@ -1,7 +1,6 @@
 # TypeScript API
 
 [![Build Status](https://travis-ci.org/christiandbf/rest-api-typescript.svg?branch=master)](https://travis-ci.org/christiandbf/rest-api-typescript)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)][4]
 
 The purpose of this repository is to learn and practice TypeScript while developing an API REST.
 
