@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  api:
+    build: .
+    restart: on-failure
+    command: npm run dev
+    environment:
+      PORT: "8000"
+      MONGO_URL: "mongodb://mongo:27017/mongo-test"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/usr/src/app
+    links:
+      - mongo
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:4.2.3-bionic
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
