@@ -3,17 +3,15 @@ FROM node:12.14.1-alpine3.11 AS builder
 WORKDIR /usr/src/app
 COPY . .
 
-RUN npm install
-RUN npm run build
+RUN npm install --silent
+RUN npm run build --silent
 
 FROM node:12.14.1-alpine3.11 AS ts-prod
 
 WORKDIR /usr/src/app
 
-EXPOSE 3000
-
 COPY package* ./
-RUN npm install --production
+RUN npm install --production --silent
 
 COPY --from=builder ./usr/src/app/dist ./dist
 
