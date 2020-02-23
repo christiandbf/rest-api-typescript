@@ -9,7 +9,7 @@ The purpose of this repository is to learn and practice TypeScript while develop
 To build the Docker image, use the `docker build` command:
 
 ```shell
-docker build . -t rest-api-typescript:latest
+docker build . -t rest-api-typescript:latest --build-arg NODE_ENV=development
 ```
 
 To stop the build on a specific stage, use the `target` option:
